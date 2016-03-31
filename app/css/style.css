@@ -1,0 +1,12 @@
+.moodbox {
+  background-image:url(http://az616578.vo.msecnd.net/files/2016/03/13/6359346621543673841267054763_pup.jpg);
+  height: 200px;
+}
+
+.mood {
+text-align:center; margin: 0 auto; display: inline-block; vertical-align: middle; width:100%; line-height:200px; font-size:3em; color:#fff; font-weight:700; text-shadow: 2px 1px 5px #ccc;
+}
+
+.row {
+  
+}
