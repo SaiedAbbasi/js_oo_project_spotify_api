@@ -3,6 +3,9 @@ var chill = new app.mood.new("chill")
 var simonSong = new app.song.new("Born At The Right Time", chill)
 var paulSimon = new app.artist.new("Paul Simon", simonSong)
 
+var deadSong = new app.song.new("Althea", chill)
+var gratefulDead = new app.artist.new("Grateful Dead", deadSong)
+
 var happy = new app.mood.new("happy")
 var jacSong = new app.song.new("I'm Amazed", happy)
 var myMorningJacket = new app.artist.new("My Morning Jacket", jacSong)

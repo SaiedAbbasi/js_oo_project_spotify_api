@@ -18,12 +18,15 @@ app.song = {
     }()),
 
     findBy: function findBy(attributeHash){
-      // attributeHash = {name: ''}
-      var key = Object.keys(attributeHash)[0]
+      var key = Object.keys(attributeHash)
       var value = attributeHash[key]
       return $.grep( app.song.all, function(song) {
         return song[key] == value;
       });
+    },
+
+    random: function randomSong(songArray){
+
     }
 
 
