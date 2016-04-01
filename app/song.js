@@ -33,8 +33,33 @@ app.song = {
     },
 
     randomSong: function randomSong(mood){
-      var songs = app.song.findByMood(mood);
-      var selectedSong = songs[Math.floor(Math.random()*songs.length)]
-      return selectedSong;
+      var songs = mood.songArray
+      var selectedSongTitle = songs[Math.floor(Math.random()*songs.length)]
+      return selectedSongTitle;
+    },
+    
+    adapter: {
+      getBy: function(selectedSongTitle, moodInstance){ 
+        return $.ajax({
+          method: "GET",
+          url: "https://api.spotify.com/v1/search?query=" + selectedSongTitle + "&offset=0&limit=1&type=track"
+        }).then(function(data){
+          var songForReal = new app.song.new(selectedSongTitle,  moodInstance, data.tracks.items[0].id)
+          return songForReal
+        })
+        //new app.song.new
+      }
     }
-}
+}  
+
+
+
+
+
+
+
+ // randomSong: function randomSong(mood){
+ //      var songs = app.song.findByMood(mood);
+ //      var selectedSong = songs[Math.floor(Math.random()*songs.length)]
+ //      return selectedSong;
+ //    }

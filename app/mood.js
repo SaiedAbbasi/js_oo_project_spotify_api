@@ -2,8 +2,9 @@ app.mood = {
     all: [],
     new: (function() {
       var counter = 0;
-      var mood = function mood(name){
+      var mood = function mood(name, songArray){
         this.name = name;
+        this.songArray = songArray
         // this.mood_array = mood_array;
         // this.mood = mood
 
