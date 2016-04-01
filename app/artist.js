@@ -15,7 +15,18 @@ app.artist = {
       initialize();
     }
       return artist
-    }())
+    }()),
+
+    findBy: function findBy(attributeHash){
+      // attributeHash = {name: ''}
+      var key = Object.keys(attributeHash)[0]
+      var value = attributeHash[key]
+      return $.grep( app.artist.all, function(artist) {
+        return artist[key] == value;
+      });
+    }
+
+
 }
 
 
@@ -23,11 +34,13 @@ app.artist = {
   //   return app.song.findBy({artist: this})
   // };
 
-  // findBy: function findBy(attributeHash){
-  //   // attributeHash = {name: ''}
-  //   var key = Object.keys(attributeHash)[0]
-  //   var value = attributeHash[key]
-  //   return $.grep( app.artist.all, function(artist) {
-  //     return artist[key] == value;
-  //   });
-  // }
+
+
+// app.artist.prototype.findBy(function(attributeHash){
+//   // attributeHash = {name: ''}
+//     var key = Object.keys(attributeHash)[0]
+//     var value = attributeHash[key]
+//     return $.grep( app.artist.all, function(artist) {
+//       return artist[key] == value;
+//     });
+//   })

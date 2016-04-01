@@ -16,5 +16,17 @@ app.mood = {
       initialize();
     }
       return mood
-    }())
+    }()),
+
+    findBy: function findBy(attributeHash){
+      // attributeHash = {name: ''}
+      var key = Object.keys(attributeHash)[0]
+      var value = attributeHash[key]
+      return $.grep( app.mood.all, function(mood) {
+        return mood[key] == value;
+      });
+    }
+
+
+
 }
