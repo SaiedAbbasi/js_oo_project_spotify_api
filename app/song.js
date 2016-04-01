@@ -3,9 +3,8 @@ app.song = {
     new: (function() {
       var counter = 0;
       var song = function song(title, mood){
-        this.name = name;
-        this.song_array = song_array;
-        this.mood = mood
+        this.title = title;
+        this.mood = mood;
 
         var that = this;
         function initialize() {
@@ -14,7 +13,7 @@ app.song = {
           app.song.all.push(that);
         };
       initialize();
-    }           
+    }
       return song
     }())
 }

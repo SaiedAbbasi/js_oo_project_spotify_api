@@ -2,10 +2,9 @@ app.artist = {
     all: [],
     new: (function() {
       var counter = 0;
-      var artist = function Artist(name, song_array, mood){
+      var artist = function Artist(name, song){
         this.name = name;
-        this.song_array = song_array;
-        this.mood = mood
+        this.song = song;
 
         var that = this;
         function initialize() {
@@ -14,7 +13,7 @@ app.artist = {
           app.artist.all.push(that);
         };
       initialize();
-    }           
+    }
       return artist
     }())
 }
