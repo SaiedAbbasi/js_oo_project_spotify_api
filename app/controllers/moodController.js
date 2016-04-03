@@ -1,5 +1,6 @@
 $(function(){
   $('.mood').click(app.mood.controller.show.init)
+  app.mood.controller.show.tini();
  })
 
 app.mood.controller = {
@@ -13,14 +14,35 @@ app.mood.controller = {
         app.song.adapter.getBy(selectedSongTitle, moodInstance).then(function(songForReal){
            app.mood.controller.show.render(songForReal, $that);
         })
-      },
-    
+      }, 
     render: function (songForReal, $that){
-        $that.hide()
-        var replace = $that.parent()
-        var link = replace.append('<iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A' + songForReal.code + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>');
-      }  
+        $.fx.speeds.xslow = 1700;
+        var $moodContainer = $('.mood_container')
+        var $trackDisplay = $('.track_display')
+        // var $back = $('.back')
+        $moodContainer.hide( "slow", function() {
+        });
+        $trackDisplay.append('<div style="float:left; padding: 0 30px;"><iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A' + songForReal.code + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>');
+        $trackDisplay.append('<h2>Track: ' + songForReal.title + '</h2>');
+        $trackDisplay.append('<h2>By: ' + songForReal.artistName + '</h2>');
+        $trackDisplay.append('<p>From the album: ' + songForReal.albumName + '</p>');
+        $trackDisplay.append('<p>Popularity Rating: ' + songForReal.trackPopularity + '</p>');
+        $trackDisplay.append('<p style="margin: 0 0 40px;">Mood: ' + songForReal.mood.name + '</p>');
+        $trackDisplay.append('<span class="back">Change Your Mood</span>');
+        // $trackDisplay.append(songForReal.albumArtEmbed);
 
+        $trackDisplay.show('xslow')     
+      },
+      tini: function (){
+        $('body').on('click', '.back', function() {
+          var $trackDisplay = $('.track_display')
+          var $moodContainer = $('.mood_container')
+          $trackDisplay.hide( "slow", function() {
+          });
+          $moodContainer.show()
+          $trackDisplay.empty()
+        });
+      } 
   } //show
 } //controller
 
@@ -39,7 +61,10 @@ app.mood.controller = {
 
 
 
-
+// $('#new_div').appendTo('#original_div').show('slow');
+// $trackDisplay.appendTo($moodContainer).show('slow');
+// $('#original_div').append($new);
+// $new.show('slow');
 
 
 

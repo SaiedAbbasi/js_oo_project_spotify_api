@@ -10,3 +10,28 @@ text-align:center; margin: 0 auto; display: inline-block; vertical-align: middle
 .row {
   
 }
+
+body {
+  background-color: #052439;
+}
+
+.track_display {
+  display:none;
+  background-color: #052439;
+  color: #DF967D;
+  width:100%;
+  padding-top:50px;
+  padding-bottom:400px;
+  font-weight: 700;
+  font-size:150%;
+}
+
+.track_display > h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.back {
+  padding: 12px 35px; background-color:#333; color:#fff; font-weight:700;
+}
+

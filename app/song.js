@@ -2,10 +2,14 @@ app.song = {
     all: [],
     new: (function() {
       var counter = 0;
-      var song = function song(title, mood, code){
+      var song = function song(title, mood, code, albumArtEmbed, albumName, artistName, trackPopularity){
         this.title = title;
         this.mood = mood;
         this.code = code;
+        this.albumArtEmbed = albumArtEmbed;
+        this.albumName = albumName;
+        this.artistName = artistName;
+        this.trackPopularity = trackPopularity;
 
         var that = this;
         function initialize() {
@@ -44,15 +48,28 @@ app.song = {
           method: "GET",
           url: "https://api.spotify.com/v1/search?query=" + selectedSongTitle + "&offset=0&limit=1&type=track"
         }).then(function(data){
-          var songForReal = new app.song.new(selectedSongTitle,  moodInstance, data.tracks.items[0].id)
+          var trackId
+          var albumArtUrl
+          var albumArtEmbed
+          var albumName
+          var artistName
+          var trackPopularity
+
+          var trackId = data.tracks.items[0].id
+          var albumArtUrl = data.tracks.items[0].album.images[0].url
+          var albumArtEmbed = '<img src="' + albumArtUrl + '" width="400px">'
+          var albumName = data.tracks.items[0].album.name
+          var artistName = data.tracks.items[0].artists[0].name
+          var trackPopularity = data.tracks.items[0].popularity
+
+          var songForReal = new app.song.new(selectedSongTitle,  moodInstance, trackId, albumArtEmbed, albumName, artistName, trackPopularity)
+
           return songForReal
         })
         //new app.song.new
       }
     }
 }  
-
-
 
 
 
