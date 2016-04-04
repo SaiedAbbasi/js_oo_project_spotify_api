@@ -37,7 +37,7 @@ app.mood.controller = {
           $('.relatedArtist').append('<li>' + relatedArtist + '</li>')
         })
 
-        $trackDisplay.show('xslow')     
+        $trackDisplay.show('xslow')
       },
       tini: function (){
         $('body').on('click', '.back', function() {
@@ -48,21 +48,21 @@ app.mood.controller = {
           $moodContainer.show()
           $trackDisplay.empty()
         });
-      } 
+      }
   } //show
 } //controller
 
 
 
 
-// 1. starting with mood object.  
+// 1. starting with mood object.
 // mood will have array of song titles
 // random to 1 song title
 // call api with song title query
 //https://api.spotify.com/v1/search?query=althea&offset=0&limit=1&type=track
 // get back data object
 // parse data into variables
-// save song object (data, mood object) 
+// save song object (data, mood object)
 //     *this is the mood association
 
 
@@ -82,16 +82,13 @@ app.mood.controller = {
 //  +      method: "GET",
 //  +      url: "https://api.spotify.com/v1/search?query=" + name + "&type=artist",
 //  +      }).then(function(data){
-//  +        var artist_data; 
+//  +        var artist_data;
 //  +        var artist;
 //  +        artist_data= data.artists.items[0];
 //  +        artist = new app.artist.model.new(artist_data.name, artist_data.popularity, artist_data.images[0])
-//  +        
+//  +
 //  +        return artist;
 //  +      })
 //  +      // new app.artist.model.new()
 //  +    }
 //  +  }
-
-
-
