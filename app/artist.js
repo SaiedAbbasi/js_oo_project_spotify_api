@@ -29,7 +29,7 @@ app.artist = {
     },
 
    adapter: {
-      getBy: function(songForReal){ 
+      getBy: function(songForReal){
         return $.ajax({
           method: "GET",
           url: "https://api.spotify.com/v1/artists/" + songForReal.artistId + "/related-artists"
@@ -38,13 +38,33 @@ app.artist = {
           var i
           var relatedArtistSet = []
 
-          limit = data.artists.length
-          for (i = 0; i < limit; i++) {
-            relatedArtistSet[i] = data.artists[i].name + ", " + data.artists[i].popularity
-          }
-          var artistForReal = new app.artist.new(songForReal, relatedArtistSet)
+          var relatedArtistToSort = {}
 
+          limit = data.artists.length
+
+
+          for (i = 0; i < limit; i++) {
+            relatedArtistToSort[data.artists[i].popularity] = data.artists[i].name
+            // + ", " + data.artists[i].popularity
+          }
+          var relatedArtistKeys = Object.keys(relatedArtistToSort)
+          var relatedArtistSortedPopularity = relatedArtistKeys.sort().reverse()
+          var relatedArtistNameSorted = []
+          relatedArtistSortedPopularity.forEach(function(popularity){
+            relatedArtistNameSorted.push(relatedArtistToSort[popularity])
+          })
+
+          var artistForReal = new app.artist.new(songForReal, relatedArtistNameSorted)
           return artistForReal
+
+
+          // for (i = 0; i < limit; i++) {
+          //   relatedArtistSet[i] = data.artists[i].name
+          //   // + ", " + data.artists[i].popularity
+          // }
+          // var artistForReal = new app.artist.new(songForReal, relatedArtistSet)
+          //
+          // return artistForReal
         })
         //new app.song.new
       }

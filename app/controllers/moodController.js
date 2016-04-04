@@ -16,7 +16,7 @@ app.mood.controller = {
             app.mood.controller.show.render(artistForReal, $that);
           })
         })
-      }, 
+      },
     render: function (artistForReal, $that){
         $.fx.speeds.xslow = 1700;
         var $moodContainer = $('.mood_container')
@@ -32,7 +32,7 @@ app.mood.controller = {
         $('.song').append('<p style="margin: 0 0 40px;">Mood: ' + artistForReal.song.mood.name + '</p>');
         $('.song').append('<span class="back">Change Your Mood</span>');
         // $trackDisplay.append(songForReal.albumArtEmbed);
-        $trackDisplay.append('<div class="relatedArtist col-md-4">Related Artists: </div>')
+        $trackDisplay.append('<div class="relatedArtist col-md-4">Related Artists (Sorted by Popularity): </div>')
         artistForReal.relatedArtists.forEach(function(relatedArtist){
           $('.relatedArtist').append('<li>' + relatedArtist + '</li>')
         })
