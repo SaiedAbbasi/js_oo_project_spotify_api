@@ -12,24 +12,30 @@ app.mood.controller = {
         var moodInstance = moodInstanceArray[0]
         var selectedSongTitle = app.song.randomSong(moodInstance);
         app.song.adapter.getBy(selectedSongTitle, moodInstance).then(function(songForReal){
-           app.mood.controller.show.render(songForReal, $that);
+          app.artist.adapter.getBy(songForReal).then(function(artistForReal){
+            app.mood.controller.show.render(artistForReal, $that);
+          })
         })
       }, 
-    render: function (songForReal, $that){
+    render: function (artistForReal, $that){
         $.fx.speeds.xslow = 1700;
         var $moodContainer = $('.mood_container')
         var $trackDisplay = $('.track_display')
         // var $back = $('.back')
         $moodContainer.hide( "slow", function() {
         });
-        $trackDisplay.append('<div style="float:left; padding: 0 30px;"><iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A' + songForReal.code + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>');
-        $trackDisplay.append('<h2>Track: ' + songForReal.title + '</h2>');
-        $trackDisplay.append('<h2>By: ' + songForReal.artistName + '</h2>');
-        $trackDisplay.append('<p>From the album: ' + songForReal.albumName + '</p>');
-        $trackDisplay.append('<p>Popularity Rating: ' + songForReal.trackPopularity + '</p>');
-        $trackDisplay.append('<p style="margin: 0 0 40px;">Mood: ' + songForReal.mood.name + '</p>');
-        $trackDisplay.append('<span class="back">Change Your Mood</span>');
+        $trackDisplay.append('<div class="song col-md-8" style="padding: 0 30px;"><iframe style="float:left; padding-right:30px;" src="https://embed.spotify.com/?uri=spotify%3Atrack%3A' + artistForReal.song.code + '" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>');
+        $('.song').append('<h2 style="margin-top: 8px;">Track: ' + artistForReal.song.title + '</h2>');
+        $('.song').append('<h2>By: ' + artistForReal.name + '</h2>');
+        $('.song').append('<p>From the album: ' + artistForReal.song.albumName + '</p>');
+        $('.song').append('<p>Popularity Rating: ' + artistForReal.song.trackPopularity + '</p>');
+        $('.song').append('<p style="margin: 0 0 40px;">Mood: ' + artistForReal.song.mood.name + '</p>');
+        $('.song').append('<span class="back">Change Your Mood</span>');
         // $trackDisplay.append(songForReal.albumArtEmbed);
+        $trackDisplay.append('<div class="relatedArtist col-md-4">Related Artists: </div>')
+        artistForReal.relatedArtists.forEach(function(relatedArtist){
+          $('.relatedArtist').append('<li>' + relatedArtist + '</li>')
+        })
 
         $trackDisplay.show('xslow')     
       },

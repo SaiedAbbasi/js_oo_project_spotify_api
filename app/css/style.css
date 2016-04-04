@@ -35,3 +35,10 @@ body {
   padding: 12px 35px; background-color:#333; color:#fff; font-weight:700;
 }
 
+li {
+  font-weight: 400;
+}
+
+.relatedArtist {
+  /*padding:50px;*/
+}

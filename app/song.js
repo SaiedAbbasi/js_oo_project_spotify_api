@@ -2,13 +2,14 @@ app.song = {
     all: [],
     new: (function() {
       var counter = 0;
-      var song = function song(title, mood, code, albumArtEmbed, albumName, artistName, trackPopularity){
+      var song = function song(title, mood, code, albumArtEmbed, albumName, artistName, artistId, trackPopularity){
         this.title = title;
         this.mood = mood;
         this.code = code;
         this.albumArtEmbed = albumArtEmbed;
         this.albumName = albumName;
         this.artistName = artistName;
+        this.artistId = artistId
         this.trackPopularity = trackPopularity;
 
         var that = this;
@@ -53,6 +54,7 @@ app.song = {
           var albumArtEmbed
           var albumName
           var artistName
+          var artistId
           var trackPopularity
 
           var trackId = data.tracks.items[0].id
@@ -60,9 +62,10 @@ app.song = {
           var albumArtEmbed = '<img src="' + albumArtUrl + '" width="400px">'
           var albumName = data.tracks.items[0].album.name
           var artistName = data.tracks.items[0].artists[0].name
+          var artistId = data.tracks.items[0].artists[0].id
           var trackPopularity = data.tracks.items[0].popularity
 
-          var songForReal = new app.song.new(selectedSongTitle,  moodInstance, trackId, albumArtEmbed, albumName, artistName, trackPopularity)
+          var songForReal = new app.song.new(selectedSongTitle,  moodInstance, trackId, albumArtEmbed, albumName, artistName, artistId, trackPopularity)
 
           return songForReal
         })
@@ -70,6 +73,17 @@ app.song = {
       }
     }
 }  
+
+// "artists" : [ {
+//         "external_urls" : {
+//           "spotify" : "https://open.spotify.com/artist/4TMHGUX5WI7OOm53PqSDAT"
+//         },
+//         "href" : "https://api.spotify.com/v1/artists/4TMHGUX5WI7OOm53PqSDAT",
+//         "id" : "4TMHGUX5WI7OOm53PqSDAT",
+//         "name" : "Grateful Dead",
+//         "type" : "artist",
+//         "uri" : "spotify:artist:4TMHGUX5WI7OOm53PqSDAT"
+//       } ],
 
 
 
