@@ -1,5 +1,5 @@
 var chillSongTitles = ["Tesselate", "Taro", "Born At The Right Time"]
-var happySongTitles = ["I'm Amazed", "Imitation Of Life", "Walls of Jericho"]
+var happySongTitles = ["I'm Amazed", "Imitation Of Life", "I'm So Excited"]
 var sadSongTitles = ["Everything Means Nothing To Me", "Hurt", "Black"]
 var funkySongTitles = ["Outa Space", "Virtual Insanity", "Break out (live)", "The Dump", "Jeep On 35"]
 var angrySongTitles = ["You're Breakin' My Heart", "Psycho", "Killing In The Name"]
