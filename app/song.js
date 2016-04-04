@@ -38,8 +38,11 @@ app.song = {
     },
 
     randomSong: function randomSong(mood){
+      var index
       var songs = mood.songArray
       var selectedSongTitle = songs[Math.floor(Math.random()*songs.length)]
+      index = mood.songArray.indexOf(selectedSongTitle)
+      mood.songArray.splice(index, 1)
       return selectedSongTitle;
     },
     

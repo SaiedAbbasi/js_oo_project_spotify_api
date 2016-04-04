@@ -1,8 +1,47 @@
 .moodbox {
-  background-image:url(http://az616578.vo.msecnd.net/files/2016/03/13/6359346621543673841267054763_pup.jpg);
+  /*background-image:url(http://az616578.vo.msecnd.net/files/2016/03/13/6359346621543673841267054763_pup.jpg);*/
   height: 300px;
   background-size: cover;
+  opacity:0.5;
 }
+.moodbox .mood {
+  /*background-image:url(http://az616578.vo.msecnd.net/files/2016/03/13/6359346621543673841267054763_pup.jpg);*/
+  opacity:1 !important;
+}
+.moodbox:hover {
+  opacity:1;
+}
+div:nth-child(1) > .moodbox:nth-child(1) {
+  background-image: url('../../assets/happy.jpg')
+}
+div:nth-child(1) > .moodbox:nth-child(2) {
+  background-image: url('../../assets/sad.jpg')
+}
+div:nth-child(1) > .moodbox:nth-child(3) {
+  background-image: url('../../assets/chill.jpg')
+}
+
+div:nth-child(2) > .moodbox:nth-child(1) {
+  background-image: url('../../assets/theatrical.jpg')
+}
+div:nth-child(2) > .moodbox:nth-child(2) {
+  background-image: url('../../assets/funk.jpg')
+}
+div:nth-child(2) > .moodbox:nth-child(3) {
+  background-image: url('../../assets/angry.jpg')
+}
+
+div:nth-child(3) > .moodbox:nth-child(1) {
+  background-image: url('../../assets/acoustic.jpg')
+}
+div:nth-child(3) > .moodbox:nth-child(2) {
+  background-image: url('../../assets/jazz.jpg')
+}
+div:nth-child(3) > .moodbox:nth-child(3) {
+  background-image: url('../../assets/mystery_palace.jpg')
+}
+
+
 
 .mood {
 text-align:center; margin: 0 auto; display: inline-block; vertical-align: middle; width:100%; line-height:200px; font-size:3em; color:#fff; font-weight:700; text-shadow: 2px 1px 5px #ccc;
@@ -32,9 +71,15 @@ body {
   margin-bottom: 15px;
 }
 
-.back {
-  padding: 12px 35px; background-color:#333; color:#fff; font-weight:700;
+.back, .next {
+  padding: 12px 35px; background-color:#343B4E; color:#DF967D; font-weight:700; border:1px solid #DF967D; clear:both;
 }
+
+.back:hover, .next:hover {
+  color:#fff; font-weight:700; border:1px solid #fff;
+}
+
+
 
 li {
   font-weight: 400;
