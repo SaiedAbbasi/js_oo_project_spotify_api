@@ -22,7 +22,6 @@ app.mood.controller = {
         $.fx.speeds.xslow = 1700;
         var $moodContainer = $('.mood_container')
         var $trackDisplay = $('.track_display')
-        // var $back = $('.back')
         $moodContainer.hide( "slow", function() {
         });
         $trackDisplay.empty()
@@ -76,46 +75,5 @@ app.mood.controller = {
             }
         })
       }
-  } //show
-} //controller
-
-
-
-
-// 1. starting with mood object.
-// mood will have array of song titles
-// random to 1 song title
-// call api with song title query
-//https://api.spotify.com/v1/search?query=althea&offset=0&limit=1&type=track
-// get back data object
-// parse data into variables
-// save song object (data, mood object)
-//     *this is the mood association
-
-
-
-// $('#new_div').appendTo('#original_div').show('slow');
-// $trackDisplay.appendTo($moodContainer).show('slow');
-// $('#original_div').append($new);
-// $new.show('slow');
-
-
-
-
-
-// adapter: {
-//  +    getBy: function(name){
-//  +      return $.ajax({
-//  +      method: "GET",
-//  +      url: "https://api.spotify.com/v1/search?query=" + name + "&type=artist",
-//  +      }).then(function(data){
-//  +        var artist_data;
-//  +        var artist;
-//  +        artist_data= data.artists.items[0];
-//  +        artist = new app.artist.model.new(artist_data.name, artist_data.popularity, artist_data.images[0])
-//  +
-//  +        return artist;
-//  +      })
-//  +      // new app.artist.model.new()
-//  +    }
-//  +  }
+  }
+}

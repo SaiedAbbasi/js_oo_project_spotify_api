@@ -5,7 +5,6 @@ app.artist = {
       var artist = function Artist(songForReal, relatedArtists){
         this.name = songForReal.artistName;
         this.song = songForReal;
-        this.id = songForReal.artistId;
         this.relatedArtists = relatedArtists
 
         var that = this;
@@ -45,7 +44,6 @@ app.artist = {
 
           for (i = 0; i < limit; i++) {
             relatedArtistToSort[data.artists[i].popularity] = data.artists[i].name
-            // + ", " + data.artists[i].popularity
           }
           var relatedArtistKeys = Object.keys(relatedArtistToSort)
           var relatedArtistSortedPopularity = relatedArtistKeys.sort().reverse()
@@ -56,35 +54,7 @@ app.artist = {
 
           var artistForReal = new app.artist.new(songForReal, relatedArtistNameSorted)
           return artistForReal
-
-
-          // for (i = 0; i < limit; i++) {
-          //   relatedArtistSet[i] = data.artists[i].name
-          //   // + ", " + data.artists[i].popularity
-          // }
-          // var artistForReal = new app.artist.new(songForReal, relatedArtistSet)
-          //
-          // return artistForReal
         })
-        //new app.song.new
       }
     }
-
-
 }
-
-
-  // artist.prototype.students = function(){
-  //   return app.song.findBy({artist: this})
-  // };
-
-
-
-// app.artist.prototype.findBy(function(attributeHash){
-//   // attributeHash = {name: ''}
-//     var key = Object.keys(attributeHash)[0]
-//     var value = attributeHash[key]
-//     return $.grep( app.artist.all, function(artist) {
-//       return artist[key] == value;
-//     });
-//   })

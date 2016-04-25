@@ -1,11 +1,9 @@
 .moodbox {
-  /*background-image:url(http://az616578.vo.msecnd.net/files/2016/03/13/6359346621543673841267054763_pup.jpg);*/
   height: 300px;
   background-size: cover;
   opacity:0.5;
 }
 .moodbox .mood {
-  /*background-image:url(http://az616578.vo.msecnd.net/files/2016/03/13/6359346621543673841267054763_pup.jpg);*/
   opacity:1 !important;
 }
 .moodbox:hover {

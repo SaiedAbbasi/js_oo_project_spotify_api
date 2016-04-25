@@ -5,8 +5,6 @@ app.mood = {
       var mood = function mood(name, songArray){
         this.name = name;
         this.songArray = songArray
-        // this.mood_array = mood_array;
-        // this.mood = mood
 
         var that = this;
         function initialize() {
@@ -27,7 +25,4 @@ app.mood = {
         return mood[key] == value;
       });
     }
-
-
-
 }

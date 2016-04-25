@@ -72,28 +72,6 @@ app.song = {
 
           return songForReal
         })
-        //new app.song.new
       }
     }
 }  
-
-// "artists" : [ {
-//         "external_urls" : {
-//           "spotify" : "https://open.spotify.com/artist/4TMHGUX5WI7OOm53PqSDAT"
-//         },
-//         "href" : "https://api.spotify.com/v1/artists/4TMHGUX5WI7OOm53PqSDAT",
-//         "id" : "4TMHGUX5WI7OOm53PqSDAT",
-//         "name" : "Grateful Dead",
-//         "type" : "artist",
-//         "uri" : "spotify:artist:4TMHGUX5WI7OOm53PqSDAT"
-//       } ],
-
-
-
-
-
- // randomSong: function randomSong(mood){
- //      var songs = app.song.findByMood(mood);
- //      var selectedSong = songs[Math.floor(Math.random()*songs.length)]
- //      return selectedSong;
- //    }
